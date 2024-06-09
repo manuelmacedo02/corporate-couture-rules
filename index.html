@@ -31,6 +31,33 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
         .image-container {
             text-align: center;
         }
@@ -40,70 +67,62 @@
             margin: 10px 0;
         }
     </style>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Corporate Couture: The High-heeled Hustle</h1>
         
-        <div class="section">
-            <h2>Starting the Game</h2>
-            <p>
-                - Players pick out figurines from a dustbag and get assigned their random characters.<br>
-                - The "Nepotism baby" player starts each round. If "Nepotism Baby" is not drawn, all players spin a wheel, and the highest scorer goes first, with the order proceeding clockwise.
-            </p>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Premise')">Premise</button>
+            <button class="tablinks" onclick="openTab(event, 'Rules')">Rules</button>
+            <button class="tablinks" onclick="openTab(event, 'Characters')">Characters</button>
         </div>
         
-        <div class="section">
-            <h2>Movement</h2>
-            <p>
-                - Players move by spinning the wheels.<br>
-                - If a player gets the "Nepotism baby" figurine, their movement is always doubled throughout the game.
-            </p>
+        <div id="Premise" class="tabcontent">
+            <div class="section">
+                <h2>Premise of the Game</h2>
+                <p>Young interns enter the workplace for the first time, encountering problems, challenges, opportunities, benefits, and navigating the circumstances they are put in.</p>
+                <p>The game can be adapted to suit any of the end goals (e.g., celebrity stylist's assistant).</p>
+            </div>
         </div>
-        
-        <div class="section">
-            <h2>Gameplay Interactions</h2>
-            <p>
-                - Players may land on spaces that allow them to pick up "Opportunity" or "Activity" cards.<br>
-                - Actions from different players can affect others' positions on the board, mirroring real-world industry dynamics.
-            </p>
-        </div>
-        
-        <div class="section">
-            <h2>Winning the Game</h2>
-            <p>
-                - To win, a player must have at least one "Opportunity" card.<br>
-                - Players must land exactly on the finish line to win. If a player is near the finish line but cannot land exactly on it on their round, they must continue around the board.<br>
-                - A player can also win if they land on an "Activity" card space that moves them directly onto the finish line, even if the move is not exact.
-            </p>
-        </div>
-        
-        <div class="section">
-            <h2>Board Navigation</h2>
-            <p>
-                - The board does not have a pre-set direction for spaces, allowing for nonlinear progression.
-            </p>
-        </div>
-        
-        <div class="section">
-            <h2>Moral of the Game</h2>
-            <p>
-                The real-life objective of this game is to demonstrate the imbalance of the corporate world in different settings. Do we all truly have the same chances? Are we treated the same when entering a work field? Different privileges can give you different benefits. This game is supposed to show different challenges that you can face in the real world and is supposed to spark dialogue to create potential changes within the industry we wish to work for.
-            </p>
-        </div>
-        
-        <div class="section">
-            <h2>End Goal</h2>
-            <p>
-                The winner will be the first who crosses the finish line.
-            </p>
-        </div>
-        
-        <div class="image-container">
-            <img src="https://www.example.com/fashion-game-board.jpg" alt="Game Board">
-            <img src="https://www.example.com/fashion-game-cards.jpg" alt="Game Cards">
-            <img src="https://www.example.com/fashion-figures.jpg" alt="Game Figures">
-        </div>
-    </div>
-</body>
-</html>
+
+        <div id="Rules" class="tabcontent">
+            <div class="section">
+                <h2>Objective</h2>
+                <p>The objective of Corporate Couture is to be the first player to reach the "Job Offer" space at the end of the board, symbolizing successful job attainment, based on a degree of luck, but also using your knowledge to take advantage of opportunity card boosters.</p>
+            </div>
+            <div class="section">
+                <h2>Setup</h2>
+                <p>Each player draws a character figurine, each with pre-set personalities and life situations that may dictate how their wheel moves count.</p>
+                <p>Set up the game board, which is laid out with spaces leading from "Start" to "Job Offer."</p>
+                <p>Shuffle and place the Activity Cards and Opportunity Cards in designated piles on the board.</p>
+            </div>
+            <div class="section">
+                <h2>Game Play</h2>
+                <p>Players take turns spinning the wheel to move forward on the board. The number may multiply depending on who the character is.</p>
+                <p>If a player lands on an Activity Space, they draw an Activity Card which could either advance or set them back based on realistic work-related scenarios; these cards can affect other players' game status as well.</p>
+                <p>Landing on an Opportunity Space allows players to answer the question written on it. This question is read by another player. Answering correctly lets the player move up two additional spaces.</p>
+            </div>
+            <div class="section">
+                <h2>Winning the Game</h2>
+                <p>The first player to land on the "Job Offer" space wins the game.</p>
+            </div>
+            <div class="section">
+                <h2>How the Game Works</h2>
+                <ul>
+                    <li><strong>Starting the Game:</strong> Players pick out figurines to
